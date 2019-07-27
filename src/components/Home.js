@@ -1,4 +1,4 @@
-import React from 'react'; //from package.json
+import React, { Component } from 'react'; //from package.json
 
 import {        // import components
     View,
@@ -12,9 +12,9 @@ import {
     Actions,
 } from 'react-native-router-flux';
 
-class Home extends React.Component {
+class Home extends Component {
     state = {
-        name: '',
+        userName: '',
     };
     render() {
         return (
@@ -27,15 +27,15 @@ class Home extends React.Component {
                     placeholder='John Snow'
                     onChangeText={(text) => {
                         this.setState({
-                            name: text,
+                            userName: text,
                         });
                     }}
-                    value={this.state.name}
+                    value={this.state.userName}
                 />
                 <TouchableOpacity
                     onPress={() => {
                         Actions.chat({
-                            name: this.state.name,
+                            userName: this.state.userName,
                         });
                         // navigate to the second screen, and to pass it the name
                         //alert(this.state.name)

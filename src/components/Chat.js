@@ -1,18 +1,27 @@
-import React from 'react'; //from package.json
-
+import React, { Component } from 'react'; //from package.json
+/*
 import {
-    View,
-    Text,
-} from 'react-native';
+    Actions,
+} from 'react-native-router-flux';
+*/
 
-class Chat extends React.Component {
+import { GiftedChat } from 'react-native-gifted-chat';
+
+class Chat extends Component {
+    state = {
+        messages: []
+    };
     render() {
         return (
-            <View>
-                <Text>
-                    Hello {this.props.name}
-                </Text>
-            </View>
+            <GiftedChat
+                messages={this.state.messages}
+                onSend={(message) => {
+                    // send message to your backend
+                }}
+                user={{
+                    _id: 1,
+                }}
+            />
         );
     }
 }
